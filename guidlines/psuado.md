@@ -2,22 +2,46 @@
 
 - [x] appleseeds api's
 
-## each function shuold have a specific task and ahort as poosible
+## general guidelines
 
-- [ ] hard code html and some css for general order
-- [ ] how to hard code(ot not) flexible input values
+- [ ] functions with specific tasks and short as poosible
+- [ ] if you cant test it dont build it
+- [ ] separate between data management to elements handling
+
+## staging phase
+
+- [x] hard code html and some css for general order
+- [x] hard code grid for table columns (row auto)
+- [x] Q: how to hard code(or not) flexible input values
+
+## fetch data
+
 - [ ] fetch data from appleseeds api's
 - [ ] mix and match data
-- [ ] 1.save/update data to local storage function
-- [ ] 2.create li element to be renderd function(use function paremeters ,not variabels)
-- [ ] 3. onLoad function(1,2)
+- [ ] save/update data to local storage function
+
+## create content dynamically
+
 - [ ] Q: what data attr should the element have?
 - [ ] Q: what is the element parts?
-- [ ] create grid table with auto rows and specified columns
-- [ ] update function (with cancel and confirm btn)
+- [ ] Q: inner html vs create and append child
+- [ ] create li element to be renderd function
+
+## event listners
+
+- [ ] buble event listners
+- [ ] function that collects user info from li item after edit
+
+## data functions
+
 - [ ] delete function
+- [ ] edit function (with cancel and confirm btn)
 - [ ] search function (key event) with drop down menue parms
 - [ ] sort function by parms
 - [ ] parms(First name,Last name,Capsule,Age,City,Gender,Hobby)
-- [ ] when a user hover over a city he gets a tooltip with wheather report(or something else)
+- [ ] tooltip on hover function
+- [ ] onLoad function()
+
+## design
+
 - [ ] css megic

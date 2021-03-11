@@ -7,13 +7,17 @@ body {
   background-color: aqua;
   padding: 1rem;
 }
+.search {
+  display: flex;
+  padding: 1rem;
+}
+.search input {
+  margin: 0 15px;
+}
 .grid-row {
   display: grid;
-  grid-template-columns: 20px repeat(5, minmax(100px, 1fr)) minmax(60px, 100px) 1fr;
-  grid-template-rows: repeat(auto-fill, 30px);
+  grid-template-columns: 20px repeat(7, minmax(90px, 160px)) repeat(3, 60px);
+  grid-template-rows: repeat(auto-fill, 40px);
   gap: 0.5rem;
-}
-input {
-  display: block;
-  width: 100px;
+  align-items: end;
 }
