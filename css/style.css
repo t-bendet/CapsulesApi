@@ -1,6 +1,19 @@
-*{
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
-
+body {
+  background-color: aqua;
+  padding: 1rem;
+}
+.grid-row {
+  display: grid;
+  grid-template-columns: 20px repeat(5, minmax(100px, 1fr)) minmax(60px, 100px) 1fr;
+  grid-template-rows: repeat(auto-fill, 30px);
+  gap: 0.5rem;
+}
+input {
+  display: block;
+  width: 100px;
+}

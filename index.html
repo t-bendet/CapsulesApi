@@ -9,6 +9,45 @@
     <title>capsulesApi</title>
   </head>
   <body>
+    <div class="search">
+      <input type="text" />
+      <select name="categories">
+        <option value="first-name">First name</option>
+        <option value="last-name">Last name</option>
+        <option value="capsule">Capsule</option>
+        <option value="age">Age</option>
+        <option value="city">City</option>
+        <option value="gender">Gender</option>
+        <option value="hobby">Hobby</option>
+      </select>
+    </div>
+    <div class="grid-table">
+      <div class="grid-row">
+        <h4>id</h4>
+        <h4>First name</h4>
+        <h4>Last name</h4>
+        <h4>Capsule</h4>
+        <h4>Age</h4>
+        <h4>City</h4>
+        <h4>Gender</h4>
+        <h4>Hobby</h4>
+      </div>
+      <div class="grid-row">
+        <p>id</p>
+        <input placeholder="First name" disabled />
+        <input placeholder="Last name" disabled />
+        <input placeholder="Capsule" disabled />
+        <!-- change naming later consider switching select to p and use js to insert it-->
+        <input placeholder="Age" disabled />
+        <input placeholder="City" disabled />
+        <select name="gender" disabled>
+          <option value="gender">male</option>
+          <option value="city">female</option>
+        </select>
+        <input placeholder="Hobby" disabled />
+      </div>
+    </div>
+
     <script src="./index.js"></script>
   </body>
 </html>
