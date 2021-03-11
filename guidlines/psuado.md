@@ -16,16 +16,16 @@
 
 ## fetch data
 
-- [ ] fetch data from appleseeds api's
-- [ ] mix and match data
-- [ ] save/update data to local storage function
+- [x] fetch data from appleseeds api's
+- [x] mix and match data
+- [x] save/update data to local storage function
 
 ## create content dynamically
 
+- [x] Q: what is the element parts?
+- [x] Q: inner html vs create and append child
+- [x] create li element to be renderd function
 - [ ] Q: what data attr should the element have?
-- [ ] Q: what is the element parts?
-- [ ] Q: inner html vs create and append child
-- [ ] create li element to be renderd function
 
 ## event listners
 
@@ -34,13 +34,14 @@
 
 ## data functions
 
+- [ ] input.setCustomValidity
 - [ ] delete function
-- [ ] edit function (with cancel and confirm btn)
+- [ ] edit function (edit =>cancel)(delete =>confirm btn)
 - [ ] search function (key event) with drop down menue parms
 - [ ] sort function by parms
 - [ ] parms(First name,Last name,Capsule,Age,City,Gender,Hobby)
 - [ ] tooltip on hover function
-- [ ] onLoad function()
+- [x] onLoad function()
 
 ## design
 
