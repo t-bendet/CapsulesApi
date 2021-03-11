@@ -50,7 +50,7 @@ function createRow(rowObject) {
     id,
     lastName} = rowObject
   let divRow = document.createElement("div");
-  divRow.innerHTML = `<div class="grid-row">
+  divRow.innerHTML = `<div class="grid-row"  data-id="${id}">
   <p>${id}</p>
   <input placeholder=${firstName} disabled />
   <input placeholder=${lastName} disabled />
@@ -59,8 +59,8 @@ function createRow(rowObject) {
   <input placeholder=${city} disabled />
   <input placeholder=${gender} disabled />
   <input placeholder=${hobby} disabled />
-  <button class="btn">Edit</button>
-  <button class="btn">Delete</button>
+  <button class="btn" data-btn="edit">Edit</button>
+  <button class="btn" data-btn="delete">Delete</button>
   <div class="robots">
   <img alt="robots" src= https://robohash.org/${4}/?set=set2 />???
   </div>
@@ -82,5 +82,16 @@ function createTable(){
   }
 }
 
+// **************************delete function**************************
+gridTable.addEventListener("click", deleteItemEvent);
+function deleteItemEvent(e) {
+  if (e.target.dataset.btn === "delete") {
+    let deleteTarget = e.target.parentElement;
+    let deleteId = deleteTarget.dataset.id;
+    localStorage.removeItem(deleteId);
+    deleteTarget.remove();
+  }
+}
+// **************************sort function**************************
 
-
+// object.addEventListener("change", myScript);

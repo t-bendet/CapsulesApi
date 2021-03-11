@@ -8,13 +8,10 @@ body {
   padding: 1rem;
 }
 /* sort and search bars */
-.search {
+nav {
   display: flex;
-  padding: 1rem;
 }
-.search input {
-  margin: 0 15px;
-}
+
 /* table grid */
 .grid-row {
   display: grid;

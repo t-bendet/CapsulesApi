@@ -35,7 +35,7 @@
 ## data functions
 
 - [ ] input.setCustomValidity
-- [ ] delete function
+- [x] delete function
 - [ ] edit function (edit =>cancel)(delete =>confirm btn)
 - [ ] search function (key event) with drop down menue parms
 - [ ] sort function by parms
