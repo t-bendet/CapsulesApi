@@ -4,6 +4,8 @@ const body = $("body");
 const container = $(".container");
 const gridTable = $(".grid-table")
 const gridRow = $(".grid-row");
+const sortBy = $("[data-sort]");
+
 //***************************************geting data***********************
 async function initDataSet() {
   const combinedData = [];
@@ -50,20 +52,21 @@ function createRow(rowObject) {
     id,
     lastName} = rowObject
   let divRow = document.createElement("div");
-  divRow.innerHTML = `<div class="grid-row"  data-id="${id}">
+  divRow.classList.add("grid-row")
+  divRow.setAttribute("data-id", `"${id}"`)
+  divRow.innerHTML = `
   <p>${id}</p>
-  <input placeholder=${firstName} disabled />
-  <input placeholder=${lastName} disabled />
-  <input placeholder=${capsule} disabled />
-  <input placeholder=${age} disabled />
-  <input placeholder=${city} disabled />
-  <input placeholder=${gender} disabled />
-  <input placeholder=${hobby} disabled />
+  <input placeholder=${firstName} data-val="firstName" disabled />
+  <input placeholder=${lastName} data-val="lastName" disabled />
+  <input placeholder=${capsule} data-val="capsule" disabled />
+  <input placeholder=${age} data-val="age" disabled />
+  <input placeholder=${city} data-val="city" disabled />
+  <input placeholder=${gender} data-val="gender" disabled />
+  <input placeholder=${hobby} data-val="hobby" disabled />
   <button class="btn" data-btn="edit">Edit</button>
   <button class="btn" data-btn="delete">Delete</button>
   <div class="robots">
   <img alt="robots" src= https://robohash.org/${4}/?set=set2 />???
-  </div>
   </div>
   `;
   return divRow
@@ -93,5 +96,25 @@ function deleteItemEvent(e) {
   }
 }
 // **************************sort function**************************
+sortBy.addEventListener("change", sortByCategory);
+function sortByCategory(e){
+  let categoryNum = e.target.value
+  sorting(categoryNum)
+}
 
-// object.addEventListener("change", myScript);
+function sorting(input) {
+  let gridDiv = gridTable.children;
+  //converting an html coolaction to a real array
+  gridDiv = Array.prototype.slice.call(gridDiv);
+  gridDiv.sort(function (a, b) {
+    if (a.children[input].placeholder < b.children[input].placeholder) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+  gridTable.innerHTML = "";
+  for (let i = 0, l = gridDiv.length; i < l; i++) {
+    gridTable.appendChild(gridDiv[i]);
+  }
+}

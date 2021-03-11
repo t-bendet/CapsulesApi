@@ -29,7 +29,7 @@
 
 ## event listners
 
-- [ ] buble event listners
+- [x] buble event listners
 - [ ] function that collects user info from li item after edit
 
 ## data functions
@@ -38,7 +38,7 @@
 - [x] delete function
 - [ ] edit function (edit =>cancel)(delete =>confirm btn)
 - [ ] search function (key event) with drop down menue parms
-- [ ] sort function by parms
+- [x] sort function by parms
 - [ ] parms(First name,Last name,Capsule,Age,City,Gender,Hobby)
 - [ ] tooltip on hover function
 - [x] onLoad function()
