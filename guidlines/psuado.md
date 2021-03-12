@@ -34,14 +34,15 @@
 
 ## data functions
 
-- [ ] input.setCustomValidity
 - [x] delete function
-- [ ] edit function (edit =>cancel)(delete =>confirm btn)
-- [ ] search function (key event) with drop down menue parms
 - [x] sort function by parms
-- [ ] parms(First name,Last name,Capsule,Age,City,Gender,Hobby)
-- [ ] tooltip on hover function
 - [x] onLoad function()
+- [x] search function (key event) with drop down menue parms (what do i need to listen to?)
+- [ ] edit function (edit =>cancel)(delete =>confirm btn)
+
+- [ ] input.setCustomValidity
+- [ ] tooltip on hover function
+- [ ] on load spinner
 
 ## design
 

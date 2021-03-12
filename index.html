@@ -11,20 +11,20 @@
   <body>
     <nav>
       <div class="search">
-        <input type="text" />
-        <select name="categories">
-          <option value="1">First name</option>
-          <option value="2">Last name</option>
-          <option value="3">Capsule</option>
-          <option value="4">Age</option>
-          <option value="5">City</option>
-          <option value="6">Gender</option>
-          <option value="7">Hobby</option>
+        <input type="text" data-search />
+        <select name="searchCategories" data-searchCategories>
+          <option value="firstName">First name</option>
+          <option value="lastName">Last name</option>
+          <option value="capsule">Capsule</option>
+          <option value="age">Age</option>
+          <option value="city">City</option>
+          <option value="gender">Gender</option>
+          <option value="hobby">Hobby</option>
         </select>
       </div>
       <div class="sort">
         <h4>sort by</h4>
-        <select name="categories" data-sort>
+        <select name="sortCategories" data-sort>
           <option value="1">First name</option>
           <option value="2">Last name</option>
           <option value="3">Capsule</option>
@@ -35,22 +35,20 @@
         </select>
       </div>
     </nav>
-
-    <div class="grid-table">
-      <div class="grid-row">
-        <h4>id</h4>
-        <h4>First name</h4>
-        <h4>Last name</h4>
-        <h4>Capsule</h4>
-        <h4>Age</h4>
-        <h4>City</h4>
-        <h4>Gender</h4>
-        <h4>Hobby</h4>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div class="grid-row">
+      <h4>id</h4>
+      <h4>First name</h4>
+      <h4>Last name</h4>
+      <h4>Capsule</h4>
+      <h4>Age</h4>
+      <h4>City</h4>
+      <h4>Gender</h4>
+      <h4>Hobby</h4>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+    <div class="grid-table"></div>
 
     <script src="./index.js"></script>
   </body>

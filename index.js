@@ -5,6 +5,9 @@ const container = $(".container");
 const gridTable = $(".grid-table")
 const gridRow = $(".grid-row");
 const sortBy = $("[data-sort]");
+const searchInput = $("[data-search]");
+const searchCategories = $("[data-searchCategories]");
+
 
 //***************************************geting data***********************
 async function initDataSet() {
@@ -33,10 +36,10 @@ async function initLocalStorage() {
 // **********if local storage has items load from local, otherwise get data**********
 async function checkLocalStorage() {
   if (localStorage.length) {
-    createTable()
+    createTable(localStorage)
   } else {
     await initLocalStorage();
-    createTable()
+    createTable(localStorage)
   }
 }
 checkLocalStorage();
@@ -53,7 +56,7 @@ function createRow(rowObject) {
     lastName} = rowObject
   let divRow = document.createElement("div");
   divRow.classList.add("grid-row")
-  divRow.setAttribute("data-id", `"${id}"`)
+  divRow.setAttribute("data-id", `${id}`)
   divRow.innerHTML = `
   <p>${id}</p>
   <input placeholder=${firstName} data-val="firstName" disabled />
@@ -76,9 +79,9 @@ function localParser(localIndex){
   return JSON.parse(localStorage.getItem(localIndex))
 }
 // **************************go over Local storage and create the table**************************
-function createTable(){
-  for (var i = 0; i < localStorage.length; i++){
-    if(localStorage.getItem(i)){
+function createTable(parm){
+  for (var i = 0; i < parm.length; i++){
+    if(parm.getItem(i)){
       createObject = localParser(i)
       gridTable.appendChild(createRow(createObject))
     }
@@ -90,7 +93,7 @@ gridTable.addEventListener("click", deleteItemEvent);
 function deleteItemEvent(e) {
   if (e.target.dataset.btn === "delete") {
     let deleteTarget = e.target.parentElement;
-    let deleteId = deleteTarget.dataset.id;
+    let deleteId = deleteTarget.dataset.id
     localStorage.removeItem(deleteId);
     deleteTarget.remove();
   }
@@ -101,7 +104,7 @@ function sortByCategory(e){
   let categoryNum = e.target.value
   sorting(categoryNum)
 }
-
+//TODO add line to prevent sorting during editing(z-index? preventdefault)
 function sorting(input) {
   let gridDiv = gridTable.children;
   //converting an html coolaction to a real array
@@ -117,4 +120,29 @@ function sorting(input) {
   for (let i = 0, l = gridDiv.length; i < l; i++) {
     gridTable.appendChild(gridDiv[i]);
   }
+  
+}
+// **************************search function**************************
+searchInput.addEventListener("input", sortByCategory);
+function sortByCategory(e) {
+  let cat = searchCategories.value;
+  let inputValue = e.target.value
+  //TODO fix / bug insdie regex
+  let regSearch = new RegExp(`^${inputValue}`,"i")
+  let objArr = [];
+  for(var i = 0; i < localStorage.length; i++){
+    if(localStorage.getItem(i)){
+      let currObj = localParser(i)
+      objArr.push(currObj)
+    }
+  }
+  console.log(objArr[3].gender);
+  const listReg = objArr.filter((x)=>
+    `${x[cat]}`.match(regSearch)
+  );
+  gridTable.innerHTML = "";
+  for (let i = 0, l = listReg.length; i < l; i++) {
+    gridTable.appendChild(createRow(listReg[i]));
+  }
+  
 }
