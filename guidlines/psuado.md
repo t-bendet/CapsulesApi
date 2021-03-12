@@ -30,7 +30,6 @@
 ## event listners
 
 - [x] buble event listners
-- [ ] function that collects user info from li item after edit
 
 ## data functions
 
@@ -39,7 +38,7 @@
 - [x] onLoad function()
 - [x] search function (key event) with drop down menue parms (what do i need to listen to?)
 - [ ] edit function (edit =>cancel)(delete =>confirm btn)
-
+- [ ] function that collects user info from li item after edit
 - [ ] input.setCustomValidity
 - [ ] tooltip on hover function
 - [ ] on load spinner

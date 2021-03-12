@@ -127,7 +127,7 @@ searchInput.addEventListener("input", sortByCategory);
 function sortByCategory(e) {
   let cat = searchCategories.value;
   let inputValue = e.target.value
-  //TODO fix / bug insdie regex
+  //TODO fix / bug insdie regex ignore flag?
   let regSearch = new RegExp(`^${inputValue}`,"i")
   let objArr = [];
   for(var i = 0; i < localStorage.length; i++){
@@ -144,5 +144,66 @@ function sortByCategory(e) {
   for (let i = 0, l = listReg.length; i < l; i++) {
     gridTable.appendChild(createRow(listReg[i]));
   }
-  
+}
+// **************************edit function enable editing**************************
+// ********************************************************************************
+
+gridTable.addEventListener("click", editItemEvent);
+function editItemEvent(e) {
+  if (e.target.dataset.btn === "edit") {
+    let editTarget = e.target.parentElement;//row element
+    let editId = editTarget.dataset.id//row id
+    enableInputs(editTarget)
+    replaceBtns(editTarget)
+  }
+}
+// **************************enable btns**************************
+function enableInputs(enableCollection){
+  let editInputs = enableCollection.querySelectorAll('input')
+  for (const disabledInput of editInputs) {
+    disabledInput.disabled = false
+  }
+}
+// **************************replace btns**************************
+function replaceBtns(replaceCollection){
+  let btnsToReplace = replaceCollection.querySelectorAll('button')
+  let cancelBtn = document.createElement("button");
+  cancelBtn.classList.add("btn")
+  cancelBtn.setAttribute('data-btn','cancel')
+  cancelBtn.innerText= 'Cancel'
+  replaceCollection.replaceChild(cancelBtn, btnsToReplace[0])
+  let confirmBtn = document.createElement("button");
+  confirmBtn.classList.add("btn")
+  confirmBtn.setAttribute('data-btn','confirm')
+  confirmBtn.innerText= 'Confirm'
+  replaceCollection.replaceChild(confirmBtn, btnsToReplace[1])
+}
+// **************************edit function confirm editing**************************
+gridTable.addEventListener("click", confrimChange);
+function confrimChange(e){
+  if (e.target.dataset.btn === "confirm") {
+    let confirmTarget = e.target.parentElement;//row element
+    let confirmId = confirmTarget.dataset.id//row id
+    //collect new data
+    // update local storage
+
+
+
+
+    // refresh(confirmId,confirmTarget)
+  }
+}
+// **************************edit function -cancel editing**************************
+gridTable.addEventListener("click", cancelChange);
+function cancelChange(e){
+  if (e.target.dataset.btn === "cancel") {
+    let cancelTarget = e.target.parentElement;//row element
+    let cancelId = cancelTarget.dataset.id//row id
+    refresh(cancelId,cancelTarget)
+  }
+}
+// **************************refresh row function**************************
+function refresh(refreshId,refreshTarget){
+  let refresher = createRow(localParser(refreshId))
+  gridTable.replaceChild(refresher,refreshTarget)
 }
