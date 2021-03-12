@@ -11,7 +11,6 @@ body {
 nav {
   display: flex;
 }
-
 /* table grid */
 .grid-row {
   display: grid;
@@ -20,8 +19,20 @@ nav {
   gap: 0.5rem;
   align-items: end;
 }
-
-/* what now?! */
-img {
+/* robots tooltip */
+.robots {
+  position: relative;
+  border-radius: 20px;
+}
+.robo-img {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  bottom: -10px;
+  right: 100px;
   display: none;
+}
+
+.robots:hover .robo-img {
+  display: block;
 }

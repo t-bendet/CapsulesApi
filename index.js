@@ -66,7 +66,7 @@ function createRow(rowObject) {
   <button class="btn" data-btn="edit">Edit</button>
   <button class="btn" data-btn="delete">Delete</button>
   <div class="robots">
-  <img alt="robots" src= https://robohash.org/${4}/?set=set2 />???
+  <img alt="robots" class="robo-img" src= https://robohash.org/${id}/?set=set3 />Robots?!
   </div>
   `;
   return divRow
