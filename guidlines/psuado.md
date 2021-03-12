@@ -29,7 +29,7 @@
 
 ## event listners
 
-- [x] buble event listners
+- [x] bubble event listners
 
 ## data functions
 
@@ -40,15 +40,15 @@
 - [x] edit function (edit =>cancel)(delete =>confirm btn)
 - [x] function that collects user info from li item after edit
 - [x] tooltip on hover function
-- [ ] on load spinner
 
 ## design
 
+- [ ] on load spinner
 - [ ] css megic
 - [ ] add courser on hover
 - [ ] design robots and transition(and text)
 
 ## last bugs in TODO
 
-- [ ] input.setCustomValidity
 - [x] regex / bug
+- [ ] input.setCustomValidity regex? inside confirm loop? form validation

@@ -3,26 +3,116 @@
   margin: 0px;
   padding: 0px;
 }
-body {
-  background-color: aqua;
-  padding: 1rem;
+@font-face {
+  font-family: "SEGA LOGO FONT";
+  font-style: normal;
+  font-weight: normal;
+  src: local("SEGA LOGO FONT"), url("SEGA.woff") format("woff");
 }
-/* sort and search bars */
+/***********************************************************************
+ *  General
+**********************************************************************/
+body {
+  height: 100vh;
+  background-color: #0ccac4;
+  font-family: "open sans", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+input {
+  padding: 3px;
+  border: 2px solid #eee;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  cursor: pointer;
+}
+select {
+  padding: 3px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  padding: 2px;
+  text-decoration: none;
+  background-color: #9756b2;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 15px;
+}
+.btn:hover,
+.btn:focus {
+  filter: brightness(1.25);
+}
+.btn:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+.btn:active {
+  transform: scale(0.99);
+}
+
+/***********************************************************************
+ *  NAV BAR
+**********************************************************************/
 nav {
   display: flex;
+  justify-content: space-between;
+  height: 80px;
+  align-items: flex-end;
 }
-/* table grid */
+.search {
+  display: flex;
+  width: 250px;
+  justify-content: space-around;
+}
+.search input {
+  width: 120px;
+}
+h1 {
+  font-family: "SEGA LOGO FONT";
+  color: #4e285f;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0;
+}
+h4 {
+  margin: 0;
+}
+.sort {
+  display: flex;
+  justify-content: space-around;
+  width: 250px;
+}
+/***********************************************************************
+ *  GRID TABLE LAYOUT
+**********************************************************************/
 .grid-row {
   display: grid;
   grid-template-columns: 20px repeat(7, minmax(90px, 160px)) repeat(3, 60px);
   grid-template-rows: repeat(auto-fill, 40px);
   gap: 0.5rem;
-  align-items: end;
+  align-items: center;
 }
-/* robots tooltip */
+/***********************************************************************
+ *  ROBOTS
+**********************************************************************/
 .robots {
   position: relative;
   border-radius: 20px;
+  background-color: orange;
 }
 .robo-img {
   width: 150px;

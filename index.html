@@ -9,9 +9,8 @@
     <title>capsulesApi</title>
   </head>
   <body>
-    <nav>
+    <nav class="container">
       <div class="search">
-        <input type="text" data-search />
         <select name="searchCategories" data-searchCategories>
           <option value="firstName">First name</option>
           <option value="lastName">Last name</option>
@@ -21,9 +20,11 @@
           <option value="gender">Gender</option>
           <option value="hobby">Hobby</option>
         </select>
+        <input type="text" placeholder="search..." data-search />
       </div>
+      <h1>robocamp</h1>
       <div class="sort">
-        <h4>sort by</h4>
+        <h4>sort by:</h4>
         <select name="sortCategories" data-sort>
           <option value="1">First name</option>
           <option value="2">Last name</option>
@@ -35,7 +36,7 @@
         </select>
       </div>
     </nav>
-    <div class="grid-row">
+    <div class="grid-row container">
       <h4>id</h4>
       <h4>First name</h4>
       <h4>Last name</h4>
@@ -48,7 +49,7 @@
       <span></span>
       <span></span>
     </div>
-    <div class="grid-table"></div>
+    <div class="grid-table container"></div>
     <script src="./index.js"></script>
   </body>
 </html>

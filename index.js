@@ -1,13 +1,13 @@
 // **************************selectors**************************
 const $ = (x) => document.querySelector(x);
 const body = $("body");
-const container = $(".container");
 const gridTable = $(".grid-table")
 const gridRow = $(".grid-row");
 const sortBy = $("[data-sort]");
 const searchInput = $("[data-search]");
 const searchCategories = $("[data-searchCategories]");
 const roboWrap = $(".wrapper")
+
 //***************************************geting data***********************
 async function initDataSet() {
   const combinedData = [];
@@ -37,9 +37,7 @@ async function checkLocalStorage() {
   if (localStorage.length) {
     createTable(localStorage)
   } else {
-    body.style.display = 'none'
     await initLocalStorage();
-    body.style.display = ''
     createTable(localStorage)
   }
 }
@@ -59,19 +57,20 @@ function createRow(rowObject) {
   divRow.setAttribute("data-id", `${id}`)
   divRow.innerHTML = `
   <p>${id}</p>
-  <input placeholder=${firstName} data-val="firstName" disabled />
-  <input placeholder=${lastName} data-val="lastName" disabled />
+  <input placeholder='${firstName}' data-val="firstName" disabled />
+  <input placeholder='${lastName}' data-val="lastName" disabled />
   <input placeholder=${capsule} data-val="capsule" disabled />
   <input placeholder=${age} data-val="age" disabled />
-  <input placeholder=${city} data-val="city" disabled />
+  <input placeholder='${city}' data-val="city"  disabled />
   <input placeholder=${gender} data-val="gender" disabled />
-  <input placeholder=${hobby} data-val="hobby" disabled />
+  <input placeholder='${hobby}' data-val="hobby" disabled />
   <button class="btn" data-btn="edit">Edit</button>
   <button class="btn" data-btn="delete">Delete</button>
   <div class="robots">
-  <img alt="robots" class="robo-img" src= https://robohash.org/${id}/?set=set3 />Robots?!
+  <img alt="robots" class="robo-img" src= https://robohash.org/${id}/?set=set3 />????!
   </div>
   `;
+  console.log(divRow);
   return divRow
 }
 // **************************parse Local storage string to object**************************
@@ -101,9 +100,9 @@ function deleteItemEvent(e) {
 sortBy.addEventListener("change", sortByCategory);
 function sortByCategory(e){
   let categoryNum = e.target.value
+  console.log(categoryNum);
   sorting(categoryNum)
 }
-//TODO add line to prevent sorting during editing(z-index? preventdefault)
 function sorting(input) {
   let gridDiv = gridTable.children;
   //converting an html coolaction to a real array
@@ -121,9 +120,10 @@ function sorting(input) {
   }
 }
 // **************************search function**************************
-searchInput.addEventListener("input", sortByCategory);
-function sortByCategory(e) {
+searchInput.addEventListener("input", searchByCategory);
+function searchByCategory(e) {
   let cat = searchCategories.value;
+  console.log(cat);
   //   / bug solution
   let inputValue = e.target.value.replaceAll("/", "");
   let res = inputValue.replaceAll("\\", "")
@@ -135,7 +135,6 @@ function sortByCategory(e) {
       objArr.push(currObj)
     }
   }
-  console.log(objArr[3].gender);
   const listReg = objArr.filter((x)=>
     `${x[cat]}`.match(regSearch)
   );
@@ -208,3 +207,15 @@ function refresh(refreshId,refreshTarget){
   let refresher = createRow(localParser(refreshId))
   gridTable.replaceChild(refresher,refreshTarget)
 }
+// **************************input Validation**************************
+
+// <input id="id1" type="number" min="100" max="300" >
+// <button onclick="myFunction()">OK</button>
+
+// gridTable.addEventListener("click", inputValidation);
+// function inputValidation() {
+//   var inpObj = checkbox;
+//   if (!inpObj.checkValidity()) {
+//     document.getElementById("demo").innerHTML = inpObj.validationMessage;
+//   }
+// }
