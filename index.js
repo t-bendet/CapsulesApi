@@ -7,8 +7,6 @@ const gridRow = $(".grid-row");
 const sortBy = $("[data-sort]");
 const searchInput = $("[data-search]");
 const searchCategories = $("[data-searchCategories]");
-
-
 //***************************************geting data***********************
 async function initDataSet() {
   const combinedData = [];
@@ -43,7 +41,6 @@ async function checkLocalStorage() {
   }
 }
 checkLocalStorage();
-
 // **************************create row elements by object**************************
 function createRow(rowObject) {
   const {age,
@@ -87,7 +84,6 @@ function createTable(parm){
     }
   }
 }
-
 // **************************delete function**************************
 gridTable.addEventListener("click", deleteItemEvent);
 function deleteItemEvent(e) {
@@ -120,7 +116,6 @@ function sorting(input) {
   for (let i = 0, l = gridDiv.length; i < l; i++) {
     gridTable.appendChild(gridDiv[i]);
   }
-  
 }
 // **************************search function**************************
 searchInput.addEventListener("input", sortByCategory);
@@ -146,8 +141,6 @@ function sortByCategory(e) {
   }
 }
 // **************************edit function enable editing**************************
-// ********************************************************************************
-
 gridTable.addEventListener("click", editItemEvent);
 function editItemEvent(e) {
   if (e.target.dataset.btn === "edit") {
@@ -184,13 +177,17 @@ function confrimChange(e){
   if (e.target.dataset.btn === "confirm") {
     let confirmTarget = e.target.parentElement;//row element
     let confirmId = confirmTarget.dataset.id//row id
-    //collect new data
-    // update local storage
-
-
-
-
-    // refresh(confirmId,confirmTarget)
+    //select all inputs
+    let confirmInputs = confirmTarget.querySelectorAll('input')
+    let confirmObj = {}
+    //collect new data to an object if there is a new value collect it,else keep placeholder as value(obj attributes are dataset values)
+    confirmObj.id = confirmId
+    for (const newInput of confirmInputs) {
+      confirmObj[newInput.dataset.val] = newInput.value?newInput.value:newInput.placeholder;
+    }
+    // updating local storage and refreshing element
+    localStorage.setItem(confirmObj.id, JSON.stringify(confirmObj))
+    refresh(confirmId,confirmTarget)
   }
 }
 // **************************edit function -cancel editing**************************
