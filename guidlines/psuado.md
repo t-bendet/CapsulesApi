@@ -51,4 +51,4 @@
 ## last bugs in TODO
 
 - [ ] input.setCustomValidity
-- [ ] regex /
+- [x] regex / bug

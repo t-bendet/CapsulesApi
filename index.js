@@ -7,6 +7,7 @@ const gridRow = $(".grid-row");
 const sortBy = $("[data-sort]");
 const searchInput = $("[data-search]");
 const searchCategories = $("[data-searchCategories]");
+const roboWrap = $(".wrapper")
 //***************************************geting data***********************
 async function initDataSet() {
   const combinedData = [];
@@ -36,7 +37,9 @@ async function checkLocalStorage() {
   if (localStorage.length) {
     createTable(localStorage)
   } else {
+    body.style.display = 'none'
     await initLocalStorage();
+    body.style.display = ''
     createTable(localStorage)
   }
 }
@@ -121,9 +124,10 @@ function sorting(input) {
 searchInput.addEventListener("input", sortByCategory);
 function sortByCategory(e) {
   let cat = searchCategories.value;
-  let inputValue = e.target.value
-  //TODO fix / bug insdie regex ignore flag?
-  let regSearch = new RegExp(`^${inputValue}`,"i")
+  //   / bug solution
+  let inputValue = e.target.value.replaceAll("/", "");
+  let res = inputValue.replaceAll("\\", "")
+  let regSearch = new RegExp(`^${res}`,"i")
   let objArr = [];
   for(var i = 0; i < localStorage.length; i++){
     if(localStorage.getItem(i)){
