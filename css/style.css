@@ -100,7 +100,7 @@ select {
 **********************************************************************/
 .grid-row {
   display: grid;
-  grid-template-columns: 20px repeat(7, minmax(90px, 160px)) repeat(3, 60px);
+  grid-template-columns: 20px repeat(7, minmax(90px, 160px)) repeat(2, 60px) 100px;
   grid-template-rows: repeat(auto-fill, 40px);
   gap: 0.5rem;
   align-items: center;
