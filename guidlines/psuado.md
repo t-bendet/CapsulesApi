@@ -44,9 +44,9 @@
 ## design
 
 - [ ] on load spinner
-- [ ] css megic
-- [ ] add courser on hover
-- [ ] design robots and transition(and text)
+- [x] css megic
+- [x] add courser on hover
+- [x] design robots and transition
 
 ## last bugs in TODO
 

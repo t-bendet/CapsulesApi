@@ -59,18 +59,16 @@ function createRow(rowObject) {
   <p>${id}</p>
   <input placeholder='${firstName}' data-val="firstName" disabled />
   <input placeholder='${lastName}' data-val="lastName" disabled />
-  <input placeholder=${capsule} data-val="capsule" disabled />
+  <input placeholder='${capsule}' data-val="capsule" disabled />
   <input placeholder=${age} data-val="age" disabled />
   <input placeholder='${city}' data-val="city"  disabled />
-  <input placeholder=${gender} data-val="gender" disabled />
+  <input placeholder='${gender}' data-val="gender" disabled />
   <input placeholder='${hobby}' data-val="hobby" disabled />
-  <button class="btn" data-btn="edit">Edit</button>
-  <button class="btn" data-btn="delete">Delete</button>
-  <div class="robots">
-  <img alt="robots" class="robo-img" src= https://robohash.org/${id}/?set=set3 />????!
-  </div>
+  <button class="btn edit" data-btn="edit">Edit</button>
+  <button class="btn delete" data-btn="delete">Delete</button>
+  <span>robome<img alt="robots" class="robo-img" src= https://robohash.org/${id}/?set=set3 /></span>
+  
   `;
-  console.log(divRow);
   return divRow
 }
 // **************************parse Local storage string to object**************************
@@ -164,12 +162,12 @@ function enableInputs(enableCollection){
 function replaceBtns(replaceCollection){
   let btnsToReplace = replaceCollection.querySelectorAll('button')
   let cancelBtn = document.createElement("button");
-  cancelBtn.classList.add("btn")
+  cancelBtn.classList.add("btn","cancel")
   cancelBtn.setAttribute('data-btn','cancel')
   cancelBtn.innerText= 'Cancel'
   replaceCollection.replaceChild(cancelBtn, btnsToReplace[0])
   let confirmBtn = document.createElement("button");
-  confirmBtn.classList.add("btn")
+  confirmBtn.classList.add("btn", "confirm")
   confirmBtn.setAttribute('data-btn','confirm')
   confirmBtn.innerText= 'Confirm'
   replaceCollection.replaceChild(confirmBtn, btnsToReplace[1])
