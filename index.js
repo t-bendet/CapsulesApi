@@ -3,6 +3,7 @@ const $ = (x) => document.querySelector(x);
 const body = $("body");
 const gridTable = $(".grid-table")
 const gridRow = $(".grid-row");
+const reserBtn = $("[data-reset]");
 const sortBy = $("[data-sort]");
 const searchInput = $("[data-search]");
 const searchCategories = $("[data-searchCategories]");
@@ -38,7 +39,7 @@ async function checkLocalStorage() {
     createTable(localStorage)
   } else {
     roboWrap.style.height = "600px"
-    roboWrap.innerHTML = `<h1>initializing  robocamp</h1>
+    roboWrap.innerHTML = `<h1>initializing &nbsp  robocamp</h1>
     <img alt="robots"  src= https://robohash.org/26/?set=set3 />`
     await initLocalStorage();
     roboWrap.style.height = "0px"
@@ -103,7 +104,6 @@ function deleteItemEvent(e) {
 sortBy.addEventListener("change", sortByCategory);
 function sortByCategory(e){
   let categoryNum = e.target.value
-  console.log(categoryNum);
   sorting(categoryNum)
 }
 function sorting(input) {
@@ -126,7 +126,6 @@ function sorting(input) {
 searchInput.addEventListener("input", searchByCategory);
 function searchByCategory(e) {
   let cat = searchCategories.value;
-  console.log(cat);
   //   / bug solution
   let inputValue = e.target.value.replaceAll("/", "");
   let res = inputValue.replaceAll("\\", "")
@@ -210,15 +209,8 @@ function refresh(refreshId,refreshTarget){
   let refresher = createRow(localParser(refreshId))
   gridTable.replaceChild(refresher,refreshTarget)
 }
-// **************************input Validation**************************
-
-// <input id="id1" type="number" min="100" max="300" >
-// <button onclick="myFunction()">OK</button>
-
-// gridTable.addEventListener("click", inputValidation);
-// function inputValidation() {
-//   var inpObj = checkbox;
-//   if (!inpObj.checkValidity()) {
-//     document.getElementById("demo").innerHTML = inpObj.validationMessage;
-//   }
-// }
+// **************************reset button**************************
+reserBtn.addEventListener("click",()=>{
+  localStorage.clear()
+  location.reload();
+})

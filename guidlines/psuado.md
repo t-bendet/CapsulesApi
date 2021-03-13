@@ -51,4 +51,4 @@
 ## last bugs in TODO
 
 - [x] regex / bug
-- [ ] input.setCustomValidity regex? inside confirm loop? form validation
+- [x] reset local storage

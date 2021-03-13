@@ -57,6 +57,21 @@ input {
 /***********************************************************************
  *  NAV BAR
 **********************************************************************/
+.reset {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  padding-top: 10px;
+}
+.btn.reset {
+  font-family: "SEGA LOGO FONT";
+  font-weight: 300;
+  color: #4e285f;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background-color: silver;
+  padding: 10px;
+}
 nav {
   display: flex;
   justify-content: space-between;
@@ -100,7 +115,7 @@ select {
 **********************************************************************/
 .grid-row {
   display: grid;
-  grid-template-columns: 20px repeat(7, minmax(90px, 160px)) repeat(2, 60px) 100px;
+  grid-template-columns: 20px repeat(7, minmax(90px, 140px)) repeat(2, 60px) 100px;
   grid-template-rows: repeat(auto-fill, 40px);
   gap: 0.5rem;
   align-items: center;
@@ -142,12 +157,13 @@ span {
   font-weight: 600;
   letter-spacing: 1px;
   position: relative;
+  cursor: pointer;
 }
 .robo-img {
   width: 150px;
   height: 150px;
   position: absolute;
-  right: 50px;
+  right: 100px;
   top: -90px;
   display: none;
   background-color: wheat;
