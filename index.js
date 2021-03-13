@@ -123,6 +123,7 @@ function sorting(input) {
   }
 }
 // **************************search function**************************
+//*** tnx to iftch the totach  ***/
 searchInput.addEventListener("input", searchByCategory);
 function searchByCategory(e) {
   let cat = searchCategories.value;
