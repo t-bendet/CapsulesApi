@@ -43,7 +43,7 @@
 
 ## design
 
-- [ ] on load spinner
+- [x] on load spinner
 - [x] css megic
 - [x] add courser on hover
 - [x] design robots and transition

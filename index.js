@@ -37,7 +37,12 @@ async function checkLocalStorage() {
   if (localStorage.length) {
     createTable(localStorage)
   } else {
+    roboWrap.style.height = "600px"
+    roboWrap.innerHTML = `<h1>initializing  robocamp</h1>
+    <img alt="robots"  src= https://robohash.org/26/?set=set3 />`
     await initLocalStorage();
+    roboWrap.style.height = "0px"
+    roboWrap.innerHTML = ``
     createTable(localStorage)
   }
 }
