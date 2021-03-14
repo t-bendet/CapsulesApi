@@ -109,6 +109,8 @@ function sortByCategory(e){
 function sorting(input) {
   let gridDiv = gridTable.children;
   //converting an html coolaction to a real array
+  //gridDiv = Array.from(gridDiv) another option
+  //gridDiv = [...gridDiv]
   gridDiv = Array.prototype.slice.call(gridDiv);
   gridDiv.sort(function (a, b) {
     if (a.children[input].placeholder < b.children[input].placeholder) {
